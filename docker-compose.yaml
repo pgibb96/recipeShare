@@ -1,0 +1,21 @@
+---
+version: '3.8'
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    volumes:
+      - .:/app
+    ports:
+      - 127.0.0.1:8080:8080
+      
+  ui:
+    build:
+      context: ui
+      dockerfile: Dockerfile.local
+    volumes:
+      - ./ui:/app
+    ports:
+      - 127.0.0.1:3000:3000

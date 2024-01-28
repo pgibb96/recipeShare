@@ -1,0 +1,14 @@
+FROM node:18.15
+
+WORKDIR /app
+
+COPY package-lock.json package.json ./
+COPY scripts ./scripts
+
+RUN ls -l
+
+RUN yarn install
+
+EXPOSE 3000
+
+ENTRYPOINT [ "./scripts/run-local.sh" ]
